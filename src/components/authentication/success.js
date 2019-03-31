@@ -13,6 +13,7 @@ class Success extends React.Component {
   logOut() {
     this.props.logOut()
   }
+  
 
   render() {
     return (

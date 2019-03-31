@@ -31,6 +31,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    //monitors for auth status changes to log user in
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({loggedIn: true})
@@ -64,7 +65,6 @@ class App extends Component {
       // An error happened.
     })
   }
-
 
 
   render() {

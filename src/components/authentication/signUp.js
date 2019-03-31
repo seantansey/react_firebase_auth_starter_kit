@@ -10,16 +10,30 @@ class SignUp extends React.Component {
       email: null,
       pass1: null,
       pass2: null,
+      errorMessage: '',
 
     }
   }
 
+  //checks password for upper/lower letters and numbers
+  passwordStrength(pass) {
+    let hasUpperCase = /[A-Z]/.test(pass)
+    let hasLowerCase = /[a-z]/.test(pass)
+    let hasNumbers = /\d/.test(pass)
+    if (pass.length >= 8 && pass.length <= 20 && hasUpperCase && hasLowerCase && hasNumbers) {
+        return true
+    } else {
+        return false
+    }
+  }
+
+  //verifies passwords match
   verifyPassword(event, email, pass1, pass2) {
-    if (pass1 === pass2) {
+    if (pass1 === pass2 && this.passwordStrength(pass1)) {
       this.props.signUp(email, pass1)
     } else {
       event.preventDefault()
-      console.log('ahh fuckin hell man', pass1, pass2)
+      this.setState({errorMessage: 'Please enter a valid password'})
     }
   }
 
@@ -37,7 +51,7 @@ class SignUp extends React.Component {
             <label for="password1">Password</label>
             <input onChange={(e) => this.setState({pass1: e.target.value})} type="password" class="form-control" id="password1" placeholder="Password" required/>
             <small id="passwordHelpBlock" class="form-text text-muted">
-              Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+              Your password must be 8-20 characters long, contain at least 1 uppercase letter, 1 lowercase letter and 1 number.
             </small>
           </div>
           <div class="form-group">
@@ -45,6 +59,7 @@ class SignUp extends React.Component {
             <input onChange={(e) => this.setState({pass2: e.target.value})}type="password" class="form-control" id="password2" placeholder="Verify Password" required/>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
+          <small className='ml-3 red-text'>{`${this.state.errorMessage}`}</small>
         </form>
         <div className='right-align'>
           <p> Already have an account? <span>

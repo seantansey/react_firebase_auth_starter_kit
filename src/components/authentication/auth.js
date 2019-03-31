@@ -8,19 +8,15 @@ class Auth extends React.Component {
   constructor() {
     super()
     this.state = {
-      login: true,
-
+      login: true
     }
     this.toggleLoginSignUp = this.toggleLoginSignUp.bind(this)
   }
 
+  //toggles whether signup or login is visible
   toggleLoginSignUp() {
     return this.state.login ? this.setState({login: false}) : this.setState({login: true})
   }
-
-
-
-
 
 
   render() {
