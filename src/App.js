@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import SignUp from './components/authentication/signUp'
-import LogIn from './components/authentication/logIn'
 import Auth from './components/authentication/auth'
 import Success from './components/authentication/success'
 import firebase from 'firebase'
-
-// Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBTl4qYZKfWP5Z9Zv43eIJz2jcSI_q8LiY",
-    authDomain: "react-auth-bb933.firebaseapp.com",
-    databaseURL: "https://react-auth-bb933.firebaseio.com",
-    projectId: "react-auth-bb933",
-    storageBucket: "",
-    messagingSenderId: "980821584369"
-  };
-  firebase.initializeApp(config);
-
+import FirebaseApp from './components/firebase'
 
 class App extends Component {
   constructor() {
@@ -42,11 +29,17 @@ class App extends Component {
   }
 
   signUp(email, password) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(success => {
+        return true
+      })
+
+
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
     });
   }
 

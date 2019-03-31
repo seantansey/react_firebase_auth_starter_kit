@@ -14,7 +14,8 @@ class LogIn extends React.Component {
   }
 
   //verifies login credentials
-  onSubmit(email, password) {
+  onSubmit(e, email, password) {
+    e.preventDefault()
     return this.props.logIn(email, password) ? null : this.setState({errorMessage: 'Invalid email or password'})
   }
 
@@ -23,7 +24,7 @@ class LogIn extends React.Component {
     return (
       <div>
         <h3> Login </h3>
-        <form onSubmit={(e) => this.onSubmit(this.state.email, this.state.password)} className="border">
+        <form onSubmit={(e) => this.onSubmit(e, this.state.email, this.state.password)} className="border">
           <div class="form-group">
             <label for="email1">Email address</label>
             <input onChange={(e) => this.setState({email: e.target.value})} type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email" required/>

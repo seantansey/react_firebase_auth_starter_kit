@@ -29,10 +29,10 @@ class SignUp extends React.Component {
 
   //verifies passwords match
   verifyPassword(event, email, pass1, pass2) {
+    event.preventDefault()
     if (pass1 === pass2 && this.passwordStrength(pass1)) {
       this.props.signUp(email, pass1)
     } else {
-      event.preventDefault()
       this.setState({errorMessage: 'Please enter a valid password'})
     }
   }
