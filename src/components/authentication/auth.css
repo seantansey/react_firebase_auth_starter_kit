@@ -1,0 +1,20 @@
+
+.border {
+  padding: 30px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.right-align {
+  text-align: right;
+  padding-top: 2%;
+}
+
+.bottom-options {
+  float: right;
+}
