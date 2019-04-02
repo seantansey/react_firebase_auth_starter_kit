@@ -1,6 +1,6 @@
 import React from 'react'
 import './auth.css'
-
+import firebase from 'firebase'
 
 
 class SignUp extends React.Component {
@@ -11,8 +11,18 @@ class SignUp extends React.Component {
       pass1: null,
       pass2: null,
       errorMessage: '',
-
     }
+  }
+
+  //firebase sign up and error handling
+  signUp(email, password) {
+    let that = this
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        var errorCode = error.code
+        var errorMessage = error.message
+        that.setState({errorMessage: errorMessage})
+    });
   }
 
   //checks password for upper/lower letters and numbers
@@ -27,13 +37,13 @@ class SignUp extends React.Component {
     }
   }
 
-  //verifies passwords match
+  //verifies passwords match and signs up user
   verifyPassword(event, email, pass1, pass2) {
     event.preventDefault()
     if (pass1 === pass2 && this.passwordStrength(pass1)) {
-      this.props.signUp(email, pass1)
+      this.signUp(email, pass1)
     } else {
-      this.setState({errorMessage: 'Please enter a valid password'})
+      this.setState({errorMessage: 'Passwords do not match or password criteria was not met. Please enter a valid password'})
     }
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './auth.css'
+import firebase from 'firebase'
 
 
 class LogIn extends React.Component {
@@ -10,12 +11,24 @@ class LogIn extends React.Component {
       password: null,
       errorMessage: ''
     }
+    this.logIn = this.logIn.bind(this)
   }
 
-  //verifies login credentials
+  //firebase login and error handling
+  logIn(email, password) {
+    let that = this
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        let errorCode = error.code
+        let errorMessage = error.message
+        that.setState({errorMessage: errorMessage})
+      })
+  }
+
+  //verifies login credentials and logs user in
   onSubmit(e, email, password) {
     e.preventDefault()
-    this.props.logIn(email, password)
+    this.logIn(email, password)
   }
 
 

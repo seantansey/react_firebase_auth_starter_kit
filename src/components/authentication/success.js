@@ -1,6 +1,6 @@
 import React from 'react'
 import './auth.css'
-
+import firebase from 'firebase'
 
 
 class Success extends React.Component {
@@ -11,7 +11,10 @@ class Success extends React.Component {
   }
 
   logOut() {
-    this.props.logOut()
+    firebase.auth().signOut().then(function() {
+    }).catch(function(error) {
+      // An error happened.
+    })
   }
 
 

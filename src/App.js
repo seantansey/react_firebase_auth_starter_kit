@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
 import Auth from './components/authentication/auth'
 import Success from './components/authentication/success'
 import firebase from 'firebase'
@@ -10,11 +9,7 @@ class App extends Component {
     super()
     this.state = {
       loggedIn: false
-
     }
-    this.signUp = this.signUp.bind(this)
-    this.logIn = this.logIn.bind(this)
-    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount() {
@@ -28,38 +23,13 @@ class App extends Component {
     })
   }
 
-  signUp(email, password) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch(function(error) {
-        var errorCode = error.code
-        var errorMessage = error.message
-        console.log(errorCode, errorMessage)
-    });
-  }
-
-  logIn(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .catch(function(error) {
-        var errorCode = error.code
-        var errorMessage = error.message
-        console.log(errorCode, errorMessage)
-      })
-  }
-
-  logOut() {
-    firebase.auth().signOut().then(function() {
-    }).catch(function(error) {
-      // An error happened.
-    })
-  }
-
 
   render() {
     return (
       <div className="App">
-        {this.state.loggedIn ? <Success logOut={this.logOut}/> : <Auth signUp={this.signUp} logIn={this.logIn} />  }
+        {this.state.loggedIn ? <Success /> : <Auth />  }
       </div>
-    );
+    )
   }
 }
 

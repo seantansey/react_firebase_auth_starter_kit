@@ -22,8 +22,7 @@ class Auth extends React.Component {
   render() {
     return (
       <div className='center'>
-        {this.state.login ? <LogIn toggle={this.toggleLoginSignUp} logIn={this.props.logIn}/> : <SignUp toggle={this.toggleLoginSignUp} signUp={this.props.signUp}/>}
-
+        {this.state.login ? <LogIn toggle={this.toggleLoginSignUp} /> : <SignUp toggle={this.toggleLoginSignUp} />}
       </div>
     )
   }
