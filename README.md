@@ -1,5 +1,9 @@
 This repo was created to be an email authentication included starter kit with firebase. Includes a signup and login page.
 
+![Alt text](./images/login.png)
+
+![Alt text](./images/signUp.png)
+
 Steps to use:
 
 1. Fork and clone repository.
