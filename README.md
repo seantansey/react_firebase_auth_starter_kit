@@ -11,8 +11,9 @@ Steps to use:
 1. Fork and clone repository.
 2. npm install
 3. Create a project on firebase (https://console.firebase.google.com/)
-4. Create a .env file
-5. Populate the .env file with the following, replacing the X's with code the config code from firebase:
+4. Enable Email/Password sign up method in the firebase authentication tab
+5. Create a .env file
+6. Populate the .env file with the following, replacing the X's with code the config code from firebase:
 
     REACT_APP_API_KEY = XXXXXXXXXXXXXXXXXXX
   
@@ -26,4 +27,4 @@ Steps to use:
   
     REACT_APP_MESSAGING_SENDER_ID = XXXXXXXXXXXXXXXXXXX
 
-6. npm start
+7. npm start (open localhost if it doesnt open automatically)
