@@ -30,26 +30,20 @@ class App extends Component {
 
   signUp(email, password) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(success => {
-        return true
-      })
-
-
       .catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
+        var errorCode = error.code
+        var errorMessage = error.message
+        console.log(errorCode, errorMessage)
     });
   }
 
   logIn(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    })
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .catch(function(error) {
+        var errorCode = error.code
+        var errorMessage = error.message
+        console.log(errorCode, errorMessage)
+      })
   }
 
   logOut() {
@@ -63,7 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.loggedIn ? <Success logOut={this.logOut}/> : <Auth signUp={this.signUp} logIn={this.logIn}/> }
+        {this.state.loggedIn ? <Success logOut={this.logOut}/> : <Auth signUp={this.signUp} logIn={this.logIn} />  }
       </div>
     );
   }

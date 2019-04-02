@@ -22,3 +22,8 @@
 .red-text {
   color: red;
 }
+
+.success {
+  text-align: center;
+  padding-top: 25%;
+}

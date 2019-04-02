@@ -43,27 +43,27 @@ class SignUp extends React.Component {
       <div>
       <h3> Sign Up </h3>
         <form onSubmit={(e) => this.verifyPassword(e, this.state.email, this.state.pass1, this.state.pass2)} className="border">
-          <div class="form-group">
-            <label for="email1">Email address</label>
-            <input onChange={(e) => this.setState({email: e.target.value})} type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email" required/>
+          <div className="form-group">
+            <label htmlFor="email1">Email address</label>
+            <input onChange={(e) => this.setState({email: e.target.value})} type="email" className="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email" required/>
           </div>
-          <div class="form-group">
-            <label for="password1">Password</label>
-            <input onChange={(e) => this.setState({pass1: e.target.value})} type="password" class="form-control" id="password1" placeholder="Password" required/>
-            <small id="passwordHelpBlock" class="form-text text-muted">
+          <div className="form-group">
+            <label htmlFor="password1">Password</label>
+            <input onChange={(e) => this.setState({pass1: e.target.value})} type="password" className="form-control" id="password1" placeholder="Password" required/>
+            <small id="passwordHelpBlock" className="form-text text-muted">
               Your password must be 8-20 characters long, contain at least 1 uppercase letter, 1 lowercase letter and 1 number.
             </small>
           </div>
-          <div class="form-group">
-            <label for="password2">Verify Password</label>
-            <input onChange={(e) => this.setState({pass2: e.target.value})}type="password" class="form-control" id="password2" placeholder="Verify Password" required/>
+          <div className="form-group">
+            <label htmlFor="password2">Verify Password</label>
+            <input onChange={(e) => this.setState({pass2: e.target.value})}type="password" className="form-control" id="password2" placeholder="Verify Password" required/>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
           <small className='ml-3 red-text'>{`${this.state.errorMessage}`}</small>
         </form>
         <div className='right-align'>
           <p> Already have an account? <span>
-          <button onClick={() => this.props.toggle()} type="button" class="btn btn-primary ">Login!</button>
+          <button onClick={() => this.props.toggle()} type="button" className="btn btn-primary ">Login!</button>
           </span>
           </p>
         </div>

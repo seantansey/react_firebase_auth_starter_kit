@@ -13,13 +13,12 @@ class Success extends React.Component {
   logOut() {
     this.props.logOut()
   }
-  
+
 
   render() {
     return (
-      <div>
-        <h3> Logged TF In! </h3>
-        <button onClick={() => this.logOut()} type="button" class="btn btn-dark">Dark</button>
+      <div className="success">
+        <button onClick={() => this.logOut()} type="button" classNameß="btn btn-dark">Log out</button>
       </div>
     )
   }
