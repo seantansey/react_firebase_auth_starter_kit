@@ -2,7 +2,7 @@ This repo was created to be an email authentication included starter kit with fi
 
 <img src="images/login.png" width="35%">
 
-![Alt text](./images/signUp.png)
+<img src="images/signUp.png" width="35%">
 
 Steps to use:
 
