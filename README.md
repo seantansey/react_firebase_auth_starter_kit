@@ -1,4 +1,6 @@
-This repo was created to be an email authentication included starter kit with firebase. Includes a signup and login page.
+This repo was created to be an email authentication included starter kit for React apps with firebase. 
+
+Includes a generic signup and login page with minimal styling.
 
 <img src="images/login.png" width="35%">
 
