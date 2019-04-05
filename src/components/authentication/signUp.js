@@ -19,9 +19,9 @@ class SignUp extends React.Component {
     let that = this
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(function(error) {
-        var errorCode = error.code
-        var errorMessage = error.message
-        that.setState({errorMessage: errorMessage})
+        //var errorCode = error.code
+        //var errorMessage = error.message
+        that.setState({errorMessage: 'Internal error, please refresh page and try again.'})
     });
   }
 

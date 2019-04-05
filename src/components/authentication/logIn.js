@@ -19,9 +19,9 @@ class LogIn extends React.Component {
     let that = this
     firebase.auth().signInWithEmailAndPassword(email, password)
       .catch(function(error) {
-        let errorCode = error.code
-        let errorMessage = error.message
-        that.setState({errorMessage: errorMessage})
+        //let errorCode = error.code
+        //let errorMessage = error.message
+        that.setState({errorMessage: 'Email address and/or password is incorrect. Please try again.'})
       })
   }
 
